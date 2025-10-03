@@ -1,6 +1,6 @@
 namespace trabajo_integrador;
 
-public class Conjunto : IColeccionable
+public class Conjunto : IColeccionable, IIterable
 {
     private List<IComparable> elementosComparables;
 
@@ -75,6 +75,11 @@ public class Conjunto : IColeccionable
     public bool Contiene(IComparable comparable)
     {
         return Pertenece(comparable);
+    }
+    
+    public IIterador CrearIterador()
+    {
+        return new IteradorDeLista(elementosComparables);
     }
 
 }

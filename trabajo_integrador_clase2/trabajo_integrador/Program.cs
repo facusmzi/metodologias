@@ -22,17 +22,63 @@ class Program
 
     static void Main(string[] args)
     {
-        IColeccionable pila = new Pila();
-        IColeccionable cola = new Cola();
-        IColeccionable multiple = new ColeccionMultiple((Pila)pila, (Cola)cola);
+        
+        // ej 9
+        Pila pila = new Pila();
+        LlenarAlumnos(pila);
+        CambiarEstrategia(pila, new ComparacionPorNombre());
+        Console.WriteLine("Comparando por nombre (alfabeticamente): ");
+        Informar(pila, "nombre");
+
+        CambiarEstrategia(pila, new ComparacionPorLegajo());
+        Console.WriteLine("\nComparando por legajo: ");
+        Informar(pila, "legajo");
+
+
+        CambiarEstrategia(pila, new ComparacionPorPromedio());
+        Console.WriteLine("\nComparando por promedio: ");
+        Informar(pila, "promedio");
+
+        CambiarEstrategia(pila, new ComparacionPorDNI());
+        Console.WriteLine("\nComparando por dni: ");
+        Informar(pila, "dni");
+        
+        
+        
+        
+        
+        // ej 2
+        // IColeccionable pila = new Pila();
+        // IColeccionable cola = new Cola();
+        // IColeccionable multiple = new ColeccionMultiple((Pila)pila, (Cola)cola);
+        // LlenarAlumnos(pila);
+        // LlenarAlumnos(cola);
+        //
+        // Console.WriteLine("=== INFORME DE LA PILA ===");
+        // Informar(pila);
+        //
+        // Console.WriteLine("\n=== INFORME DE LA COLA ===");
+        // Informar(cola);
+        
+        
+        
+        // ej 7
+        /*Pila pila = new Pila();
+        Cola cola = new Cola();
+        Conjunto conjunto = new Conjunto();
+    
         LlenarAlumnos(pila);
         LlenarAlumnos(cola);
-
-        Console.WriteLine("=== INFORME DE LA PILA ===");
-        Informar(pila);
-
-        Console.WriteLine("\n=== INFORME DE LA COLA ===");
-        Informar(cola);
+        LlenarAlumnos(conjunto);
+    
+        Console.WriteLine("=== ELEMENTOS DE LA PILA ===");
+        ImprimirElementos(pila);
+    
+        Console.WriteLine("\n=== ELEMENTOS DE LA COLA ===");
+        ImprimirElementos(cola);
+    
+        Console.WriteLine("\n=== ELEMENTOS DEL CONJUNTO ===");
+        ImprimirElementos(conjunto);*/
     }
 
 
@@ -61,7 +107,7 @@ class Program
     }
     
     // ej 2
-    public static void Informar(IColeccionable col)
+    /*public static void Informar(IColeccionable col)
     {
         Console.WriteLine("Cantidad de elementos: " + col.Cuantos().ToString());
         Console.WriteLine("El mínimo es: " + col.Minimo().ToString());
@@ -70,7 +116,7 @@ class Program
         Console.WriteLine("Ingrese valor a buscar en el coleccionable: ");
         int valorBuscado = int.Parse(Console.ReadLine()!);
 
-        // Alumno ficticio con solo el promedio cargado
+       
         Alumno alumnoBuscado = new Alumno(
             "",
             new Numero(valorBuscado),   // DNI 
@@ -83,10 +129,85 @@ class Program
             Console.WriteLine("El elemento leído está en la colección.");
         else
             Console.WriteLine("El elemento leído no está en la colección.");
+    }*/
+    
+    // ej 9
+    static void Informar(IColeccionable col, string tipoBusqueda)
+    {
+        Console.WriteLine("Cantidad de elementos: " + col.Cuantos());
+        Console.WriteLine("El mínimo es: " + col.Minimo());
+        Console.WriteLine("El máximo es: " + col.Maximo());
+
+        Alumno alumnoBuscado = null;
+
+        switch (tipoBusqueda.ToLower())
+        {
+            case "nombre":
+                Console.Write("Ingrese nombre a buscar: ");
+                string nombre = Console.ReadLine() ?? "";
+                alumnoBuscado = new Alumno(nombre, new Numero(0), new Numero(0), new Numero(0));
+                alumnoBuscado.Estrategia = new ComparacionPorNombre();
+                break;
+
+            case "legajo":
+                Console.Write("Ingrese legajo a buscar: ");
+                int legajo = int.Parse(Console.ReadLine()!);
+                alumnoBuscado = new Alumno("", new Numero(0), new Numero(legajo), new Numero(0));
+                alumnoBuscado.Estrategia = new ComparacionPorLegajo();
+                break;
+
+            case "promedio":
+                Console.Write("Ingrese promedio a buscar: ");
+                int promedio = int.Parse(Console.ReadLine()!);
+                alumnoBuscado = new Alumno("", new Numero(0), new Numero(0), new Numero(promedio));
+                alumnoBuscado.Estrategia = new ComparacionPorPromedio();
+                break;
+
+            case "dni":
+                Console.Write("Ingrese DNI a buscar: ");
+                int dni = int.Parse(Console.ReadLine()!);
+                alumnoBuscado = new Alumno("", new Numero(dni), new Numero(0), new Numero(0));
+                alumnoBuscado.Estrategia = new ComparacionPorDNI();
+                break;
+
+            default:
+                Console.WriteLine("Tipo de búsqueda desconocido.");
+                return;
+        }
+
+        Console.WriteLine("El valor " + (col.Contiene(alumnoBuscado) ? "está" : "no está") + " en la colección.");
     }
 
+
+    
+    // Ejercicio 6
+    public static void ImprimirElementos(IColeccionable coleccionable)
+    {
+        
+        IIterable iterable = (IIterable)coleccionable;
+        IIterador iterador = iterable.CrearIterador();
+    
+        while (!iterador.Fin())
+        {
+            Console.WriteLine(iterador.Actual());
+            iterador.Siguiente();
+        }
+    }
     
     
+    static void CambiarEstrategia(IColeccionable coleccionable, IEstrategiaComparacion estrategia)
+    {
+        IIterable iterable = (IIterable)coleccionable; 
+        IIterador iterador = iterable.CrearIterador();
+        iterador.Primero();
+
+        while (!iterador.Fin())
+        {
+            Alumno alumno = (Alumno)iterador.Actual(); 
+            alumno.Estrategia = estrategia;
+            iterador.Siguiente();
+        }
+    }
     
 
 

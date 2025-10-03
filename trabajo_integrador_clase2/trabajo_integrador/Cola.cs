@@ -1,6 +1,6 @@
 ﻿namespace trabajo_integrador;
 
-public class Cola : IColeccionable
+public class Cola : IColeccionable, IIterable
 {
     private List<IComparable> elementos;
 
@@ -95,5 +95,10 @@ public class Cola : IColeccionable
             }
         }
         return false;
+    }
+    
+    public IIterador CrearIterador()
+    {
+        return new IteradorDeLista(elementos);
     }
 }
