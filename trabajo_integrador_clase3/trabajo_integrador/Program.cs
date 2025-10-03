@@ -23,7 +23,7 @@ class Program
     static void Main(string[] args)
     {
         
-        // ej 9
+        
         Pila pila = new Pila();
         LlenarAlumnos(pila);
         CambiarEstrategia(pila, new ComparacionPorNombre());
@@ -45,44 +45,20 @@ class Program
         
         
         
-        
-        
-        // ej 2
-        // IColeccionable pila = new Pila();
-        // IColeccionable cola = new Cola();
-        // IColeccionable multiple = new ColeccionMultiple((Pila)pila, (Cola)cola);
-        // LlenarAlumnos(pila);
-        // LlenarAlumnos(cola);
+        // // Crear profesor aleatorio
+        // IComparable prof = FabricaDeComparables.CrearAleatorio(3);
         //
-        // Console.WriteLine("=== INFORME DE LA PILA ===");
-        // Informar(pila);
+        // // Llenar una pila con profesores
+        // Pila pila = new Pila();
+        // Llenar(pila, 3);
+        // Informar(pila, 3);
         //
-        // Console.WriteLine("\n=== INFORME DE LA COLA ===");
-        // Informar(cola);
         
         
-        
-        // ej 7
-        /*Pila pila = new Pila();
-        Cola cola = new Cola();
-        Conjunto conjunto = new Conjunto();
-    
-        LlenarAlumnos(pila);
-        LlenarAlumnos(cola);
-        LlenarAlumnos(conjunto);
-    
-        Console.WriteLine("=== ELEMENTOS DE LA PILA ===");
-        ImprimirElementos(pila);
-    
-        Console.WriteLine("\n=== ELEMENTOS DE LA COLA ===");
-        ImprimirElementos(cola);
-    
-        Console.WriteLine("\n=== ELEMENTOS DEL CONJUNTO ===");
-        ImprimirElementos(conjunto);*/
     }
 
 
-    // ej 2
+    
     public static void LlenarAlumnos(IColeccionable coleccionable)
     {
         for (int i = 0; i < 20; i++)
@@ -106,41 +82,10 @@ class Program
         }
     }
     
-    public static void llenar(IColeccionable coleccionable)
-    {
-        for (int i = 0; i < 20; i++){
-            IComparable comparable = new Numero(Random.Next(1, 51)); 
-            coleccionable.Agregar(comparable);
-        }
-    }
     
-    // ej 2
-    /*public static void Informar(IColeccionable col)
-    {
-        Console.WriteLine("Cantidad de elementos: " + col.Cuantos().ToString());
-        Console.WriteLine("El mínimo es: " + col.Minimo().ToString());
-        Console.WriteLine("El máximo es: " + col.Maximo().ToString());
 
-        Console.WriteLine("Ingrese valor a buscar en el coleccionable: ");
-        int valorBuscado = int.Parse(Console.ReadLine()!);
-
-       
-        Alumno alumnoBuscado = new Alumno(
-            "",
-            new Numero(valorBuscado),   // DNI 
-            new Numero(0),   // Legajo vacío
-            new Numero(0) // Promedio vacio
-        );
-        alumnoBuscado.Estrategia = new ComparacionPorPromedio();
-
-        if (col.Contiene(alumnoBuscado))
-            Console.WriteLine("El elemento leído está en la colección.");
-        else
-            Console.WriteLine("El elemento leído no está en la colección.");
-    }*/
     
-    // ej 9
-    static void Informar(IColeccionable col, string tipoBusqueda)
+    /*static void Informar(IColeccionable col, string tipoBusqueda)
     {
         Console.WriteLine("Cantidad de elementos: " + col.Cuantos());
         Console.WriteLine("El mínimo es: " + col.Minimo());
@@ -184,11 +129,10 @@ class Program
         }
 
         Console.WriteLine("El valor " + (col.Contiene(alumnoBuscado) ? "está" : "no está") + " en la colección.");
-    }
+    }*/
 
 
     
-    // Ejercicio 6
     public static void ImprimirElementos(IColeccionable coleccionable)
     {
         
@@ -215,6 +159,31 @@ class Program
             alumno.Estrategia = estrategia;
             iterador.Siguiente();
         }
+    }
+    
+    
+    // ej 6
+    public static void Llenar(IColeccionable coleccionable, int opcion)
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            IComparable comparable = FabricaDeComparables.CrearAleatorio(opcion);
+            coleccionable.Agregar(comparable);
+        }
+    }
+
+    public static void Informar(IColeccionable coleccionable, int opcion)
+    {
+        Console.WriteLine("Cantidad de elementos: " + coleccionable.Cuantos());
+        Console.WriteLine("El mínimo es: " + coleccionable.Minimo());
+        Console.WriteLine("El máximo es: " + coleccionable.Maximo());
+
+        IComparable comparable = FabricaDeComparables.CrearPorTeclado(opcion);
+
+        if (coleccionable.Contiene(comparable))
+            Console.WriteLine("El elemento leído está en la colección.");
+        else
+            Console.WriteLine("El elemento leído no está en la colección.");
     }
     
 

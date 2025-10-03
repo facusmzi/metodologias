@@ -22,15 +22,38 @@ class Program
 
     static void Main(string[] args)
     {
+        // ej 7
+        // Pila pila = new Pila();
+        // Cola cola = new Cola();
+        // llenar(pila);
+        // llenar(cola);
+        // Informar(pila);
+        // Informar(cola);
+        
+        
+        // ej 9
+        // Pila pila = new Pila();
+        // Cola cola = new Cola();
+        // IColeccionable multiple = new ColeccionMultiple((Pila)pila, (Cola)cola);
+        // llenar(pila);
+        // llenar(cola);
+        // Informar(pila);
+        // Informar(cola);
+        // Informar(multiple);
+
+
+
+
+        // ej 14
         IColeccionable pila = new Pila();
         IColeccionable cola = new Cola();
         IColeccionable multiple = new ColeccionMultiple((Pila)pila, (Cola)cola);
         LlenarAlumnos(pila);
         LlenarAlumnos(cola);
-
+        
         Console.WriteLine("=== INFORME DE LA PILA ===");
         Informar(pila);
-
+        
         Console.WriteLine("\n=== INFORME DE LA COLA ===");
         Informar(cola);
     }
@@ -58,6 +81,17 @@ class Program
             coleccionable.Agregar(alumno);
         }
     }
+    
+    
+    public static void llenar(IColeccionable coleccionable)
+    {
+        for (int i = 0; i < 20; i++){
+            IComparable comparable = new Numero(Random.Next(1, 51)); 
+            coleccionable.Agregar(comparable);
+        }
+    }
+    
+    
 
     // static void informar(IColeccionable col)
     // {
