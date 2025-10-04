@@ -4,7 +4,7 @@ namespace trabajo_integrador
     {
         Numero getLegajo();
         string getNombre();
-        Numero getDNI();
+        Numero getDni();
         Numero getPromedio();
 
         int getCalificacion();

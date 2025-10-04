@@ -15,9 +15,9 @@ public abstract class AlumnoDecorator : IAlumno
         return alumnoAdicional.getNombre();
     }
 		
-    public Numero getDNI()
+    public Numero getDni()
     {
-        return alumnoAdicional.getDNI();
+        return alumnoAdicional.getDni();
     }
 		
     public bool sosIgual(IComparable comp)

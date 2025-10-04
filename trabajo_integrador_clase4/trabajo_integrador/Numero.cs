@@ -9,7 +9,7 @@
             this.valor = valor;
         }
 
-        // Getter y setter "manuales" en minúscula
+        
         public int getValor()
         {
             return valor;
@@ -20,7 +20,7 @@
             this.valor = valor;
         }
 
-        // Implementamos la interfaz IComparable
+        
         public bool sosIgual(IComparable comparable)
         {
             return this.valor == ((Numero)comparable).valor;
@@ -36,7 +36,7 @@
             return this.valor > ((Numero)comparable).valor;
         }
 
-        // override de ToString
+        
         public override string ToString()
         {
             return valor.ToString();

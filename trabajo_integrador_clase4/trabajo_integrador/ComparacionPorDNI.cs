@@ -6,21 +6,21 @@ namespace trabajo_integrador
         {
             Alumno alumnoA = (Alumno)a;
             Alumno alumnoB = (Alumno)b;
-            return alumnoA.getDNI().sosIgual(alumnoB.getDNI());
+            return alumnoA.getDni().sosIgual(alumnoB.getDni());
         }
 
         public bool sosMenor(IComparable a, IComparable b)
         {
             Alumno alumnoA = (Alumno)a;
             Alumno alumnoB = (Alumno)b;
-            return alumnoA.getDNI().sosMenor(alumnoB.getDNI());
+            return alumnoA.getDni().sosMenor(alumnoB.getDni());
         }
 
         public bool sosMayor(IComparable a, IComparable b)
         {
             Alumno alumnoA = (Alumno)a;
             Alumno alumnoB = (Alumno)b;
-            return alumnoA.getDNI().sosMayor(alumnoB.getDNI());
+            return alumnoA.getDni().sosMayor(alumnoB.getDni());
         }
     }
 }

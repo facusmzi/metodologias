@@ -2,8 +2,8 @@
 {
     public interface IComparable
     {
-        bool sosIgual(IComparable otro);
-        bool sosMenor(IComparable otro);
-        bool sosMayor(IComparable otro);
+        bool sosIgual(IComparable comparable);
+        bool sosMenor(IComparable comparable);
+        bool sosMayor(IComparable comparable);
     }
 }

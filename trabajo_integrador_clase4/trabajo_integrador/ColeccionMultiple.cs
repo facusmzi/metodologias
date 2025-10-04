@@ -56,9 +56,7 @@
 
         public void agregar(IComparable comparable)
         {
-            // Según tu implementación original, no hace nada.
-            // Podrías definir una política, por ejemplo agregar a pila por defecto:
-            pila.agregar(comparable);
+            
         }
 
         public bool contiene(IComparable comparable)

@@ -11,13 +11,13 @@
             dni = d;
         }
 
-        // Getter "manual" en minúscula
+        
         public string getNombre()
         {
             return nombre;
         }
 
-        public Numero getDNI()
+        public Numero getDni()
         {
             return dni;
         }

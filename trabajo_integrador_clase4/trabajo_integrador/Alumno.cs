@@ -15,7 +15,7 @@
             calificacion = 0;
         }
 
-        // Getters y setters como métodos
+       
         public Numero getLegajo()
         {
             return legajo;
@@ -46,10 +46,10 @@
             calificacion = c;
         }
 
-        // Métodos heredados / override
+        
         public override string ToString()
         {
-            return $"{nombre} (DNI: {dni}, Legajo: {legajo}, Promedio: {promedio})";
+            return nombre + " (DNI: " + dni + ", Legajo: " + legajo + ", Promedio: " + promedio + ")";
         }
 
         public override bool sosIgual(IComparable comparable)
