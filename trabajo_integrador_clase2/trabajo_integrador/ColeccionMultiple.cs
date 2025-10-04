@@ -11,7 +11,7 @@
             this.cola = c;
         }
 
-        // Getters y setters al estilo Java
+        
         public Pila getPila()
         {
             return pila;
@@ -77,8 +77,7 @@
 
         public void agregar(IComparable comparable)
         {
-            // Por ejemplo, agregamos a la pila por defecto
-            pila.agregar(comparable);
+            
         }
 
         public bool contiene(IComparable comparable)

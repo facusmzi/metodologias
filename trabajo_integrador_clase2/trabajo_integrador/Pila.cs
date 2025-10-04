@@ -9,7 +9,7 @@
             elementos = new List<IComparable>();
         }
 
-        // Métodos propios de la pila
+        
         public void apilar(IComparable elem)
         {
             elementos.Add(elem);
@@ -41,7 +41,7 @@
             return elementos[tam - 1];
         }
 
-        // Implementación de IColeccionable
+        
         public int cuantos()
         {
             return elementos.Count;

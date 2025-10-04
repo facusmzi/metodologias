@@ -9,16 +9,8 @@
             this.elementos = new List<IComparable>();
         }
 
-        // Getter y setter al estilo Java para elementos
-        public List<IComparable> getElementos()
-        {
-            return elementos;
-        }
-
-        public void setElementos(List<IComparable> e)
-        {
-            elementos = e;
-        }
+        
+        
 
         public void encolar(IComparable elem)
         {

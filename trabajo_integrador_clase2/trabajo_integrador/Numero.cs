@@ -9,19 +9,19 @@
             this.valor = valor;
         }
 
-        // Getter al estilo Java
+        
         public int getValor()
         {
             return this.valor;
         }
 
-        // Setter al estilo Java
+        
         public void setValor(int valor)
         {
             this.valor = valor;
         }
 
-        // Implementamos IComparable
+        // IComparable
         public bool sosIgual(IComparable comparable)
         {
             return this.valor == ((Numero)comparable).getValor();

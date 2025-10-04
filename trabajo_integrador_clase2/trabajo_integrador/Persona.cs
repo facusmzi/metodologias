@@ -11,7 +11,7 @@
             this.dni = d;
         }
 
-        // Getters y setters al estilo Java
+        
         public string getNombre()
         {
             return nombre;
@@ -32,7 +32,7 @@
             dni = d;
         }
 
-        // Implementación de comparación
+        
         public virtual bool sosIgual(IComparable comparable)
         {
             Persona persona = (Persona)comparable;

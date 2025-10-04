@@ -13,7 +13,7 @@
             estrategia = new ComparacionPorLegajo();
         }
 
-        // Getters y setters al estilo Java
+        
         public Numero getLegajo()
         {
             return legajo;
@@ -46,7 +46,7 @@
 
         public override string ToString()
         {
-            return $"{getNombre()} (DNI: {getDni()}, Legajo: {legajo.getValor()}, Promedio: {promedio.getValor()})";
+            return nombre + " (DNI: " + dni + ", Legajo: " + legajo + ", Promedio: " + promedio + ")";
         }
 
         public override bool sosIgual(IComparable comparable)
