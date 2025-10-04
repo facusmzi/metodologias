@@ -22,7 +22,7 @@
             return dni;
         }
 
-        // Implementación de IComparable en minúsculas
+        
         public virtual bool sosIgual(IComparable comparable)
         {
             Persona persona = (Persona)comparable;

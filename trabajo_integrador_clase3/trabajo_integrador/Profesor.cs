@@ -13,7 +13,7 @@ namespace trabajo_integrador
             ultimaAccion = "";
         }
 
-        // Getters y setters normales
+        
         public Numero getAntiguedad()
         {
             return antiguedad;

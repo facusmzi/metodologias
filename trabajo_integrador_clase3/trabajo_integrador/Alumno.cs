@@ -28,14 +28,14 @@
             return estrategia;
         }
 
-        public void setEstrategia(IEstrategiaComparacion estrategia)
+        public void setEstrategia(IEstrategiaComparacion e)
         {
-            this.estrategia = estrategia;
+            this.estrategia = e;
         }
 
         public override string ToString()
         {
-            return $"{nombre} (DNI: {dni}, Legajo: {legajo}, Promedio: {promedio})";
+            return nombre + " (DNI: " + dni + ", Legajo: " + legajo + ", Promedio: " + promedio + ")";
         }
 
         public override bool sosIgual(IComparable comparable)

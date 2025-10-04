@@ -56,7 +56,7 @@
 
         public void agregar(IComparable comparable)
         {
-            pila.agregar(comparable);
+            
         }
 
         public bool contiene(IComparable comparable)

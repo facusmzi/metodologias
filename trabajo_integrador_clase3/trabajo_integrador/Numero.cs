@@ -36,7 +36,7 @@
             return this.valor > ((Numero)comparable).valor;
         }
 
-        // override de ToString
+        
         public override string ToString()
         {
             return valor.ToString();
