@@ -1,10 +1,11 @@
-﻿namespace trabajo_integrador;
-
-public interface IColeccionable
+﻿namespace trabajo_integrador
 {
-    public int Cuantos();
-    public IComparable Minimo();
-    public IComparable Maximo();
-    public void Agregar(IComparable comparable);
-    public bool Contiene(IComparable comparable);
+    public interface IColeccionable
+    {
+        int cuantos();
+        IComparable minimo();
+        IComparable maximo();
+        void agregar(IComparable comparable);
+        bool contiene(IComparable comparable);
+    }
 }

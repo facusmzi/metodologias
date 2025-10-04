@@ -1,8 +1,9 @@
-namespace trabajo_integrador;
-
-public interface IObservado
+namespace trabajo_integrador
 {
-    void AgregarObservador(IObservador observador);
-    void QuitarObservador(IObservador observador);
-    void Notificar();
+    public interface IObservado
+    {
+        void agregarObservador(IObservador observador);
+        void quitarObservador(IObservador observador);
+        void notificar();
+    }
 }

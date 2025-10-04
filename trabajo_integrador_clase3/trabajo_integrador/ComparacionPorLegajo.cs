@@ -1,25 +1,26 @@
-namespace trabajo_integrador;
-
-public class ComparacionPorLegajo : IEstrategiaComparacion
+namespace trabajo_integrador
 {
-    public bool SosIgual(IComparable a, IComparable b)
+    public class ComparacionPorLegajo : IEstrategiaComparacion
     {
-        Alumno alumnoA = (Alumno)a;
-        Alumno alumnoB = (Alumno)b;
-        return alumnoA.Legajo.SosIgual(alumnoB.Legajo);
-    }
+        public bool sosIgual(IComparable a, IComparable b)
+        {
+            Alumno alumnoA = (Alumno)a;
+            Alumno alumnoB = (Alumno)b;
+            return alumnoA.getLegajo().sosIgual(alumnoB.getLegajo());
+        }
 
-    public bool SosMenor(IComparable a, IComparable b)
-    {
-        Alumno alumnoA = (Alumno)a;
-        Alumno alumnoB = (Alumno)b;
-        return alumnoA.Legajo.SosMenor(alumnoB.Legajo);
-    }
+        public bool sosMenor(IComparable a, IComparable b)
+        {
+            Alumno alumnoA = (Alumno)a;
+            Alumno alumnoB = (Alumno)b;
+            return alumnoA.getLegajo().sosMenor(alumnoB.getLegajo());
+        }
 
-    public bool SosMayor(IComparable a, IComparable b)
-    {
-        Alumno alumnoA = (Alumno)a;
-        Alumno alumnoB = (Alumno)b;
-        return alumnoA.Legajo.SosMayor(alumnoB.Legajo);
+        public bool sosMayor(IComparable a, IComparable b)
+        {
+            Alumno alumnoA = (Alumno)a;
+            Alumno alumnoB = (Alumno)b;
+            return alumnoA.getLegajo().sosMayor(alumnoB.getLegajo());
+        }
     }
 }

@@ -1,25 +1,26 @@
-namespace trabajo_integrador;
-
-public class ComparacionPorDNI : IEstrategiaComparacion
+namespace trabajo_integrador
 {
-    public bool SosIgual(IComparable a, IComparable b)
+    public class ComparacionPorDNI : IEstrategiaComparacion
     {
-        Alumno alumnoA = (Alumno)a;
-        Alumno alumnoB = (Alumno)b;
-        return alumnoA.DNI.SosIgual(alumnoB.DNI);
-    }
+        public bool sosIgual(IComparable a, IComparable b)
+        {
+            Alumno alumnoA = (Alumno)a;
+            Alumno alumnoB = (Alumno)b;
+            return alumnoA.getDni().sosIgual(alumnoB.getDni());
+        }
 
-    public bool SosMenor(IComparable a, IComparable b)
-    {
-        Alumno alumnoA = (Alumno)a;
-        Alumno alumnoB = (Alumno)b;
-        return alumnoA.DNI.SosMenor(alumnoB.DNI);
-    }
+        public bool sosMenor(IComparable a, IComparable b)
+        {
+            Alumno alumnoA = (Alumno)a;
+            Alumno alumnoB = (Alumno)b;
+            return alumnoA.getDni().sosMenor(alumnoB.getDni());
+        }
 
-    public bool SosMayor(IComparable a, IComparable b)
-    {
-        Alumno alumnoA = (Alumno)a;
-        Alumno alumnoB = (Alumno)b;
-        return alumnoA.DNI.SosMayor(alumnoB.DNI);
+        public bool sosMayor(IComparable a, IComparable b)
+        {
+            Alumno alumnoA = (Alumno)a;
+            Alumno alumnoB = (Alumno)b;
+            return alumnoA.getDni().sosMayor(alumnoB.getDni());
+        }
     }
 }

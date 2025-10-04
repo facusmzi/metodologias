@@ -1,78 +1,67 @@
-﻿namespace trabajo_integrador;
-
-public class ColeccionMultiple : IColeccionable
+﻿namespace trabajo_integrador
 {
-    private Pila pila;
-    private Cola cola;
-
-
-    public ColeccionMultiple(Pila p, Cola c)
+    public class ColeccionMultiple : IColeccionable
     {
-        this.pila = p;
-        this.cola = c;
-    }
+        private Pila pila;
+        private Cola cola;
 
+        public ColeccionMultiple(Pila p, Cola c)
+        {
+            pila = p;
+            cola = c;
+        }
 
-    public int Cuantos()
-    {
-        return pila.Cuantos() + cola.Cuantos();
-    }
+        public int cuantos()
+        {
+            return pila.cuantos() + cola.cuantos();
+        }
 
+        public IComparable minimo()
+        {
+            if (pila.cuantos() == 0 && cola.cuantos() == 0)
+                return null;
 
-    public IComparable Minimo()
-    {
+            if (pila.cuantos() == 0)
+                return cola.minimo();
+            if (cola.cuantos() == 0)
+                return pila.minimo();
 
-        if (pila.Cuantos() == 0 && cola.Cuantos() == 0)
-            throw new InvalidOperationException("Ambas colecciones están vacías");
+            IComparable minPila = pila.minimo();
+            IComparable minCola = cola.minimo();
 
+            if (minPila.sosMenor(minCola))
+                return minPila;
+            else
+                return minCola;
+        }
 
-        if (pila.Cuantos() == 0)
-            return cola.Minimo();
-        if (cola.Cuantos() == 0)
-            return pila.Minimo();
+        public IComparable maximo()
+        {
+            if (pila.cuantos() == 0 && cola.cuantos() == 0)
+                return null;
 
+            if (pila.cuantos() == 0)
+                return cola.maximo();
+            if (cola.cuantos() == 0)
+                return pila.maximo();
 
-        IComparable minPila = pila.Minimo();
-        IComparable minCola = cola.Minimo();
+            IComparable maxPila = pila.maximo();
+            IComparable maxCola = cola.maximo();
 
-        if (minPila.SosMenor(minCola))
-            return minPila;
-        else
-            return minCola;
-    }
+            if (maxPila.sosMayor(maxCola))
+                return maxPila;
+            else
+                return maxCola;
+        }
 
+        public void agregar(IComparable comparable)
+        {
+            pila.agregar(comparable);
+        }
 
-    public IComparable Maximo()
-    {
-
-        if (pila.Cuantos() == 0 && cola.Cuantos() == 0)
-            throw new InvalidOperationException("Ambas colecciones están vacías");
-
-
-        if (pila.Cuantos() == 0)
-            return cola.Maximo();
-        if (cola.Cuantos() == 0)
-            return pila.Maximo();
-
-
-        IComparable maxPila = pila.Maximo();
-        IComparable maxCola = cola.Maximo();
-
-        if (maxPila.SosMayor(maxCola))
-            return maxPila;
-        else
-            return maxCola;
-    }
-
-
-    public void Agregar(IComparable comparable)
-    {
-
-    }
-
-
-    public bool Contiene(IComparable comparable)
-    {
-        return pila.Contiene(comparable) || cola.Contiene(comparable);
+        public bool contiene(IComparable comparable)
+        {
+            return pila.contiene(comparable) || cola.contiene(comparable);
+        }
     }
 }

@@ -1,25 +1,26 @@
-namespace trabajo_integrador;
-
-public class ComparacionPorPromedio : IEstrategiaComparacion
+namespace trabajo_integrador
 {
-    public bool SosIgual(IComparable a, IComparable b)
+    public class ComparacionPorPromedio : IEstrategiaComparacion
     {
-        Alumno alumnoA = (Alumno)a;
-        Alumno alumnoB = (Alumno)b;
-        return alumnoA.Promedio.SosIgual(alumnoB.Promedio);
-    }
+        public bool sosIgual(IComparable a, IComparable b)
+        {
+            Alumno alumnoA = (Alumno)a;
+            Alumno alumnoB = (Alumno)b;
+            return alumnoA.getPromedio().sosIgual(alumnoB.getPromedio());
+        }
 
-    public bool SosMenor(IComparable a, IComparable b)
-    {
-        Alumno alumnoA = (Alumno)a;
-        Alumno alumnoB = (Alumno)b;
-        return alumnoA.Promedio.SosMenor(alumnoB.Promedio);
-    }
+        public bool sosMenor(IComparable a, IComparable b)
+        {
+            Alumno alumnoA = (Alumno)a;
+            Alumno alumnoB = (Alumno)b;
+            return alumnoA.getPromedio().sosMenor(alumnoB.getPromedio());
+        }
 
-    public bool SosMayor(IComparable a, IComparable b)
-    {
-        Alumno alumnoA = (Alumno)a;
-        Alumno alumnoB = (Alumno)b;
-        return alumnoA.Promedio.SosMayor(alumnoB.Promedio);
+        public bool sosMayor(IComparable a, IComparable b)
+        {
+            Alumno alumnoA = (Alumno)a;
+            Alumno alumnoB = (Alumno)b;
+            return alumnoA.getPromedio().sosMayor(alumnoB.getPromedio());
+        }
     }
 }

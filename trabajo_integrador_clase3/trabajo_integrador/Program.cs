@@ -2,122 +2,105 @@
 
 class Program
 {
-
-    
-
-
     static void Main(string[] args)
     {
-        
         // ej 6
         /*Console.WriteLine("=== PRUEBA CON NÚMEROS ===");
         Pila pilaNumeros = new Pila();
-        Llenar(pilaNumeros, 1);
-        Informar(pilaNumeros, 1);
+        llenar(pilaNumeros, 1);
+        informar(pilaNumeros, 1);
 
         Console.WriteLine("\n=== PRUEBA CON ALUMNOS ===");
         Cola colaAlumnos = new Cola();
-        Llenar(colaAlumnos, 2);
-        Informar(colaAlumnos, 2);
+        llenar(colaAlumnos, 2);
+        informar(colaAlumnos, 2);
 
         Console.WriteLine("\n=== PRUEBA CON PROFESORES ===");
         Conjunto conjuntoProfesores = new Conjunto();
-        Llenar(conjuntoProfesores, 3);
-        Informar(conjuntoProfesores, 3);*/
-        
+        llenar(conjuntoProfesores, 3);
+        informar(conjuntoProfesores, 3);*/
         
         // ej 9
-        // IComparable prof = FabricaDeComparables.CrearAleatorio(3);
+        // IComparable prof = FabricaDeComparables.crearAleatorio(3);
         // Pila pila = new Pila();
-        // Llenar(pila, 3);
-        // Informar(pila, 3);
+        // llenar(pila, 3);
+        // informar(pila, 3);
         
-        Profesor profesor = (Profesor)FabricaDeComparables.CrearAleatorio(3);
-	    	
+        
+        // ej 14
+        Profesor profesor = (Profesor)FabricaDeComparables.crearAleatorio(3);
+        
         Pila col = new Pila();
-        Llenar(col, 2);
+        llenar(col, 2);
 
-        IIterador iterador = col.CrearIterador();
-	    	
-        for (iterador.Primero(); !iterador.Fin(); iterador.Siguiente())
+        IIterador iterador = col.crearIterador();
+        
+        for (iterador.primero(); !iterador.fin(); iterador.siguiente())
         {
-            profesor.AgregarObservador((IObservador)iterador.Actual());
+            profesor.agregarObservador((IObservador)iterador.actual());
         }
-	    	
-        Console.WriteLine("Profesor: " + profesor.Nombre);
-        DictadoDeClases(profesor); 
-
         
-        
+        Console.WriteLine("Profesor: " + profesor.getNombre());
+        dictadoDeClases(profesor); 
     }
-    
-    
-    
-    public static void ImprimirElementos(IColeccionable coleccionable)
+
+    public static void imprimirElementos(IColeccionable coleccionable)
     {
-        
         IIterable iterable = (IIterable)coleccionable;
-        IIterador iterador = iterable.CrearIterador();
-    
-        while (!iterador.Fin())
+        IIterador iterador = iterable.crearIterador();
+
+        while (!iterador.fin())
         {
-            Console.WriteLine(iterador.Actual());
-            iterador.Siguiente();
+            Console.WriteLine(iterador.actual());
+            iterador.siguiente();
         }
     }
-    
-    
-    static void CambiarEstrategia(IColeccionable coleccionable, IEstrategiaComparacion estrategia)
+
+    static void cambiarEstrategia(IColeccionable coleccionable, IEstrategiaComparacion estrategia)
     {
         IIterable iterable = (IIterable)coleccionable; 
-        IIterador iterador = iterable.CrearIterador();
-        iterador.Primero();
+        IIterador iterador = iterable.crearIterador();
+        iterador.primero();
 
-        while (!iterador.Fin())
+        while (!iterador.fin())
         {
-            Alumno alumno = (Alumno)iterador.Actual(); 
-            alumno.Estrategia = estrategia;
-            iterador.Siguiente();
+            Alumno alumno = (Alumno)iterador.actual();
+            alumno.setEstrategia(estrategia);
+            iterador.siguiente();
         }
     }
-    
-    
+
     // ej 6
-    public static void Llenar(IColeccionable coleccionable, int opcion)
+    public static void llenar(IColeccionable coleccionable, int opcion)
     {
         for (int i = 0; i < 20; i++)
         {
-            IComparable comparable = FabricaDeComparables.CrearAleatorio(opcion);
-            coleccionable.Agregar(comparable);
+            IComparable comparable = FabricaDeComparables.crearAleatorio(opcion);
+            coleccionable.agregar(comparable);
         }
     }
 
-    public static void Informar(IColeccionable coleccionable, int opcion)
+    public static void informar(IColeccionable coleccionable, int opcion)
     {
-        Console.WriteLine("Cantidad de elementos: " + coleccionable.Cuantos());
-        Console.WriteLine("El mínimo es: " + coleccionable.Minimo());
-        Console.WriteLine("El máximo es: " + coleccionable.Maximo());
+        Console.WriteLine("Cantidad de elementos: " + coleccionable.cuantos());
+        Console.WriteLine("El mínimo es: " + coleccionable.minimo());
+        Console.WriteLine("El máximo es: " + coleccionable.maximo());
 
-        IComparable comparable = FabricaDeComparables.CrearPorTeclado(opcion);
+        IComparable comparable = FabricaDeComparables.crearPorTeclado(opcion);
 
-        if (coleccionable.Contiene(comparable))
+        if (coleccionable.contiene(comparable))
             Console.WriteLine("El elemento leído está en la colección.");
         else
             Console.WriteLine("El elemento leído no está en la colección.");
     }
-    
-    
+
     // ej 13
-    public static void DictadoDeClases(Profesor profesor)
+    public static void dictadoDeClases(Profesor profesor)
     {
         for (int i = 0; i < 5; i++)
         {
-            profesor.HablarALaClase();
-            profesor.EscribirEnElPizarron();
+            profesor.hablarALaClase();
+            profesor.escribirEnElPizarron();
         }
     }
-    
-
-
-
 }

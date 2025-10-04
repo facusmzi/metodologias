@@ -2,5 +2,5 @@ namespace trabajo_integrador;
 
 public interface IObservador
 {
-    void Actualizar(IObservado observado);
+    void actualizar(IObservado observado);
 }

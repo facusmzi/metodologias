@@ -3,9 +3,9 @@
 public interface IComparable
 {
 
-    public bool SosIgual(IComparable otro);
-    public bool SosMenor(IComparable otro);
-    public bool SosMayor(IComparable otro);
+    public bool sosIgual(IComparable otro);
+    public bool sosMenor(IComparable otro);
+    public bool sosMayor(IComparable otro);
 
 
 }

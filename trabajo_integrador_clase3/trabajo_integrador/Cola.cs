@@ -1,104 +1,105 @@
-﻿namespace trabajo_integrador;
-
-public class Cola : IColeccionable, IIterable
+﻿namespace trabajo_integrador
 {
-    private List<IComparable> elementos;
-
-    public Cola()
+    public class Cola : IColeccionable, IIterable
     {
-        this.elementos = new List<IComparable>();
-    }
+        private List<IComparable> elementos;
 
-    public void Encolar(IComparable elem)
-    {
-        elementos.Add(elem);
-    }
-
-    public IComparable Desencolar()
-    {
-        if (this.Vacia())
+        public Cola()
         {
-            return null;
+            elementos = new List<IComparable>();
         }
 
-        IComparable aux = elementos[0];
-        elementos.RemoveAt(0);
-        return aux;
-    }
-
-    public bool Vacia()
-    {
-        return elementos.Count == 0;
-    }
-
-    public IComparable Tope()
-    {
-        if (this.Vacia())
-            return null;
-
-        return elementos[0];
-    }
-
-    // Implementación de IColeccionable
-    public int Cuantos()
-    {
-        return elementos.Count;
-    }
-
-    public IComparable Minimo()
-    {
-        if (this.Vacia())
-            return null;
-
-        IComparable min = elementos[0];
-        for (int i = 1; i < elementos.Count; i++)
+        public void encolar(IComparable elem)
         {
-            IComparable actual = elementos[i];
-            if (actual.SosMenor(min))
+            elementos.Add(elem);
+        }
+
+        public IComparable desencolar()
+        {
+            if (vacia())
             {
-                min = actual;
+                return null;
             }
+
+            IComparable aux = elementos[0];
+            elementos.RemoveAt(0);
+            return aux;
         }
-        return min;
-    }
 
-    public IComparable Maximo()
-    {
-        if (this.Vacia())
-            return null;
-
-        IComparable max = elementos[0];
-        for (int i = 1; i < elementos.Count; i++)
+        public bool vacia()
         {
-            IComparable actual = elementos[i];
-            if (actual.SosMayor(max))
-            {
-                max = actual;
-            }
+            return elementos.Count == 0;
         }
-        return max;
-    }
 
-    public void Agregar(IComparable comparable)
-    {
-        Encolar(comparable);
-    }
-
-    public bool Contiene(IComparable comparable)
-    {
-        for (int i = 0; i < elementos.Count; i++)
+        public IComparable tope()
         {
-            IComparable actual = elementos[i];
-            if (actual.SosIgual(comparable))
-            {
-                return true;
-            }
+            if (vacia())
+                return null;
+
+            return elementos[0];
         }
-        return false;
-    }
-    
-    public IIterador CrearIterador()
-    {
-        return new IteradorDeLista(elementos);
+
+        // Implementación de IColeccionable
+        public int cuantos()
+        {
+            return elementos.Count;
+        }
+
+        public IComparable minimo()
+        {
+            if (vacia())
+                return null;
+
+            IComparable min = elementos[0];
+            for (int i = 1; i < elementos.Count; i++)
+            {
+                IComparable actual = elementos[i];
+                if (actual.sosMenor(min))
+                {
+                    min = actual;
+                }
+            }
+            return min;
+        }
+
+        public IComparable maximo()
+        {
+            if (vacia())
+                return null;
+
+            IComparable max = elementos[0];
+            for (int i = 1; i < elementos.Count; i++)
+            {
+                IComparable actual = elementos[i];
+                if (actual.sosMayor(max))
+                {
+                    max = actual;
+                }
+            }
+            return max;
+        }
+
+        public void agregar(IComparable comparable)
+        {
+            encolar(comparable);
+        }
+
+        public bool contiene(IComparable comparable)
+        {
+            for (int i = 0; i < elementos.Count; i++)
+            {
+                IComparable actual = elementos[i];
+                if (actual.sosIgual(comparable))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public IIterador crearIterador()
+        {
+            return new IteradorDeLista(elementos);
+        }
     }
 }

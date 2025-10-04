@@ -1,92 +1,89 @@
-﻿namespace trabajo_integrador;
-
-public class Alumno : Persona, IObservador
+﻿namespace trabajo_integrador
 {
-    private Numero legajo;
-    private Numero promedio;
-    private IEstrategiaComparacion estrategia;
+    public class Alumno : Persona, IObservador
+    {
+        private Numero legajo;
+        private Numero promedio;
+        private IEstrategiaComparacion estrategia;
 
-    public Alumno(string n, Numero d, Numero l, Numero p) : base(n, d)
-    {
-        legajo = l;
-        promedio = p;
-        estrategia = new ComparacionPorLegajo();
-    }
-    
-
-    public Numero Legajo
-    {
-        get { return legajo; }
-    }
-
-    public Numero Promedio
-    {
-        get { return promedio; }
-    }
-
-    public IEstrategiaComparacion Estrategia
-    {
-        get { return estrategia; }
-        set { estrategia = value; }
-    }
-
-    public override string ToString()
-    {
-        return $"{nombre} (DNI: {dni}, Legajo: {legajo}, Promedio: {promedio})";
-    }
-
-    public override bool SosIgual(IComparable comparable)
-    {
-        return estrategia.SosIgual(this, comparable);
-    }
-
-
-    public override bool SosMenor(IComparable comparable)
-    {
-        return estrategia.SosMenor(this, comparable);
-    }
-
-
-    public override bool SosMayor(IComparable comparable)
-    {
-        return estrategia.SosMayor(this, comparable);
-    }
-    
-    
-    public void PrestarAtencion()
-    {
-        Console.WriteLine($"  {nombre}: Prestando atención");
-    }
-    
-    
-    
-    public void Distraerse()
-    {
-        Random random = new Random();
-        string[] distracciones = {
-            "Mirando el celular",
-            "Dibujando en el margen de la carpeta",
-            "Tirando aviones de papel"
-        };
-        
-        int indice = random.Next(distracciones.Length);
-        Console.WriteLine($"  {nombre}: {distracciones[indice]}");
-    }
-    
-    // IObservador
-    public void Actualizar(IObservado observado)
-    {
-        Profesor profesor = (Profesor)observado;
-        
-        if (profesor.UltimaAccion == "hablar")
+        public Alumno(string n, Numero d, Numero l, Numero p) : base(n, d)
         {
-            PrestarAtencion();
+            legajo = l;
+            promedio = p;
+            estrategia = new ComparacionPorLegajo();
         }
-        else if (profesor.UltimaAccion == "escribir")
+
+        public Numero getLegajo()
         {
-            Distraerse();
+            return legajo;
+        }
+
+        public Numero getPromedio()
+        {
+            return promedio;
+        }
+
+        public IEstrategiaComparacion getEstrategia()
+        {
+            return estrategia;
+        }
+
+        public void setEstrategia(IEstrategiaComparacion estrategia)
+        {
+            this.estrategia = estrategia;
+        }
+
+        public override string ToString()
+        {
+            return $"{nombre} (DNI: {dni}, Legajo: {legajo}, Promedio: {promedio})";
+        }
+
+        public override bool sosIgual(IComparable comparable)
+        {
+            return estrategia.sosIgual(this, comparable);
+        }
+
+        public override bool sosMenor(IComparable comparable)
+        {
+            return estrategia.sosMenor(this, comparable);
+        }
+
+        public override bool sosMayor(IComparable comparable)
+        {
+            return estrategia.sosMayor(this, comparable);
+        }
+
+        public void prestarAtencion()
+        {
+            Console.WriteLine($"  {nombre}: Prestando atención");
+        }
+
+        public void distraerse()
+        {
+            Random random = new Random();
+            string[] distracciones = {
+                "Mirando el celular",
+                "Dibujando en el margen de la carpeta",
+                "Tirando aviones de papel"
+            };
+
+            int indice = random.Next(distracciones.Length);
+            Console.WriteLine($"  {nombre}: {distracciones[indice]}");
+        }
+
+        // IObservador
+        public void actualizar(IObservado observado)
+        {
+            Profesor profesor = (Profesor)observado;
+
+            if (profesor.getUltimaAccion() == "hablar")
+            {
+                prestarAtencion();
+            }
+            else if (profesor.getUltimaAccion() == "escribir")
+            {
+                distraerse();
+            }
         }
     }
-    
-
 }

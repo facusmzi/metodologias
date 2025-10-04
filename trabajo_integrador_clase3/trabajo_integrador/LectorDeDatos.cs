@@ -1,15 +1,16 @@
-namespace trabajo_integrador;
-
-public class LectorDeDatos
+namespace trabajo_integrador
 {
-    public static int NumeroPorTeclado()
+    public class LectorDeDatos
     {
-        return int.Parse(Console.ReadLine()!);
-    }
+        public static int numeroPorTeclado()
+        {
+            return int.Parse(Console.ReadLine()!);
+        }
 
-    public static string StringPorTeclado()
-    {
-        string texto = Console.ReadLine();
-        return texto;
+        public static string stringPorTeclado()
+        {
+            string texto = Console.ReadLine()!;
+            return texto;
+        }
     }
 }

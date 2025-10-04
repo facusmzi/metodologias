@@ -1,47 +1,48 @@
-namespace trabajo_integrador;
-
-public abstract class FabricaDeComparables
+namespace trabajo_integrador
 {
-    public static IComparable CrearAleatorio(int opcion)
+    public abstract class FabricaDeComparables
     {
-        FabricaDeComparables fabrica = null!;
-        
-        if (opcion == 1)
+        public static IComparable crearAleatorio(int opcion)
         {
-            fabrica = new FabricaDeNumeros();
-        }
-        else if (opcion == 2)
-        {
-            fabrica = new FabricaDeAlumnos();
-        }
-        else if (opcion == 3)
-        {
-            fabrica = new FabricaDeProfesores();
-        }
-        
-        return fabrica.CrearPorAleatorio();
-    }
+            FabricaDeComparables fabrica = null!;
 
-    public static IComparable CrearPorTeclado(int opcion)
-    {
-        FabricaDeComparables fabrica = null!;
-        
-        if (opcion == 1)
-        {
-            fabrica = new FabricaDeNumeros();
-        }
-        else if (opcion == 2)
-        {
-            fabrica = new FabricaDeAlumnos();
-        }
-        else if (opcion == 3)
-        {
-            fabrica = new FabricaDeProfesores();
-        }
-        
-        return fabrica.CrearPorLector();
-    }
+            if (opcion == 1)
+            {
+                fabrica = new FabricaDeNumeros();
+            }
+            else if (opcion == 2)
+            {
+                fabrica = new FabricaDeAlumnos();
+            }
+            else if (opcion == 3)
+            {
+                fabrica = new FabricaDeProfesores();
+            }
 
-    public abstract IComparable CrearPorAleatorio();
-    public abstract IComparable CrearPorLector();
+            return fabrica.crearPorAleatorio();
+        }
+
+        public static IComparable crearPorTeclado(int opcion)
+        {
+            FabricaDeComparables fabrica = null!;
+
+            if (opcion == 1)
+            {
+                fabrica = new FabricaDeNumeros();
+            }
+            else if (opcion == 2)
+            {
+                fabrica = new FabricaDeAlumnos();
+            }
+            else if (opcion == 3)
+            {
+                fabrica = new FabricaDeProfesores();
+            }
+
+            return fabrica.crearPorLector();
+        }
+
+        public abstract IComparable crearPorAleatorio();
+        public abstract IComparable crearPorLector();
+    }
 }

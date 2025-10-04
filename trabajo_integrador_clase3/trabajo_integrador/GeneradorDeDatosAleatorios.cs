@@ -1,24 +1,25 @@
-namespace trabajo_integrador;
-
-public class GeneradorDeDatosAleatorios
+namespace trabajo_integrador
 {
-    private static Random random = new Random();
-    private const string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-
-    public static int NumeroAleatorio(int max)
+    public class GeneradorDeDatosAleatorios
     {
-        return random.Next(max + 1);
-    }
+        private static Random random = new Random();
+        private const string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-    public static string StringAleatorio(int cant)
-    {
-        char[] resultado = new char[cant];
-        
-        for (int i = 0; i < cant; i++)
+        public static int numeroAleatorio(int max)
         {
-            resultado[i] = caracteres[random.Next(caracteres.Length)];
+            return random.Next(max + 1);
         }
-        
-        return new string(resultado);
+
+        public static string stringAleatorio(int cant)
+        {
+            char[] resultado = new char[cant];
+
+            for (int i = 0; i < cant; i++)
+            {
+                resultado[i] = caracteres[random.Next(caracteres.Length)];
+            }
+
+            return new string(resultado);
+        }
     }
 }
