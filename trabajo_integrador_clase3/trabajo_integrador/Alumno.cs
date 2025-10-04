@@ -5,21 +5,14 @@ public class Alumno : Persona, IObservador
     private Numero legajo;
     private Numero promedio;
     private IEstrategiaComparacion estrategia;
-    private string ultimaAccionDelProfesor;
 
     public Alumno(string n, Numero d, Numero l, Numero p) : base(n, d)
     {
         legajo = l;
         promedio = p;
         estrategia = new ComparacionPorLegajo();
-        ultimaAccionDelProfesor = "";
     }
-
-    public string UltimaAccionDelProfesor
-    {
-        get { return ultimaAccionDelProfesor; }
-        set { ultimaAccionDelProfesor = value; }
-    }
+    
 
     public Numero Legajo
     {
@@ -80,16 +73,16 @@ public class Alumno : Persona, IObservador
         Console.WriteLine($"  {nombre}: {distracciones[indice]}");
     }
     
-    // Implementación de IObservador
+    // IObservador
     public void Actualizar(IObservado observado)
     {
-        //Profesor profesor = (Profesor)observado;
+        Profesor profesor = (Profesor)observado;
         
-        if (ultimaAccionDelProfesor == "hablar")
+        if (profesor.UltimaAccion == "hablar")
         {
             PrestarAtencion();
         }
-        else if (ultimaAccionDelProfesor == "escribir")
+        else if (profesor.UltimaAccion == "escribir")
         {
             Distraerse();
         }
