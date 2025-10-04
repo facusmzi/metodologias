@@ -1,42 +1,45 @@
-﻿namespace trabajo_integrador;
+﻿namespace trabajo_integrador
+{
+    public class Numero : IComparable
+    {
+        private int valor;
 
-public class Numero : IComparable
-	{
+        public Numero(int valor)
+        {
+            this.valor = valor;
+        }
 
-	    private int valor;
+        // Getter al estilo Java
+        public int getValor()
+        {
+            return this.valor;
+        }
 
-	    public Numero(int valor)
-	    {
-	        this.valor = valor;
-	    }
+        // Setter al estilo Java
+        public void setValor(int valor)
+        {
+            this.valor = valor;
+        }
 
-	    public int Valor
-	    {
-	      get {return this.valor;}
-          set {valor = value;}
-	    }
+        // Implementamos IComparable
+        public bool sosIgual(IComparable comparable)
+        {
+            return this.valor == ((Numero)comparable).getValor();
+        }
 
+        public bool sosMenor(IComparable comparable)
+        {
+            return this.valor < ((Numero)comparable).getValor();
+        }
 
-	    // Implementamos interfaz Comparable
-	    public bool SosIgual(IComparable comparable)
-	    {
-	        return (this.valor == ((Numero)comparable).valor);
-	    }
+        public bool sosMayor(IComparable comparable)
+        {
+            return this.valor > ((Numero)comparable).getValor();
+        }
 
-	    public bool SosMenor(IComparable Comparable)
-	    {
-	        return (this.valor < ((Numero)Comparable).valor);
-	    }
-
-	    public bool SosMayor(IComparable comparable)
-	    {
-	        return (this.valor > ((Numero)comparable).valor);
-	    }
-
-	    // @override
-	    public override string ToString()
-	    {
-	        return this.valor.ToString();
-	    }
-
-	}
+        public override string ToString()
+        {
+            return this.valor.ToString();
+        }
+    }
+}

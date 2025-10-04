@@ -8,25 +8,25 @@ public class IteradorDeLista : IIterador
     public IteradorDeLista(List<IComparable> elementos)
     {
         this.elementos = elementos;
-        Primero();
+        primero();
     }
 
-    public void Primero()
+    public void primero()
     {
         posicionActual = 0;
     }
 
-    public void Siguiente()
+    public void siguiente()
     {
         posicionActual++;
     }
 
-    public bool Fin()
+    public bool fin()
     {
         return posicionActual >= elementos.Count;
     }
 
-    public IComparable Actual()
+    public IComparable actual()
     {
         return elementos[posicionActual];
     }

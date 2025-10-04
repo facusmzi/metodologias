@@ -2,9 +2,9 @@
 
 public interface IColeccionable
 {
-    public int Cuantos();
-    public IComparable Minimo();
-    public IComparable Maximo();
-    public void Agregar(IComparable comparable);
-    public bool Contiene(IComparable comparable);
+    int cuantos();
+    IComparable minimo();
+    IComparable maximo();
+    void agregar(IComparable comparable);
+    bool contiene(IComparable comparable);
 }

@@ -2,24 +2,24 @@ namespace trabajo_integrador;
 
 public class ComparacionPorLegajo : IEstrategiaComparacion
 {
-    public bool SosIgual(IComparable a, IComparable b)
+    public bool sosIgual(IComparable a, IComparable b)
     {
         Alumno alumnoA = (Alumno)a;
         Alumno alumnoB = (Alumno)b;
-        return alumnoA.Legajo.SosIgual(alumnoB.Legajo);
+        return alumnoA.getLegajo().sosIgual(alumnoB.getLegajo());
     }
 
-    public bool SosMenor(IComparable a, IComparable b)
+    public bool sosMenor(IComparable a, IComparable b)
     {
         Alumno alumnoA = (Alumno)a;
         Alumno alumnoB = (Alumno)b;
-        return alumnoA.Legajo.SosMenor(alumnoB.Legajo);
+        return alumnoA.getLegajo().sosMenor(alumnoB.getLegajo());
     }
 
-    public bool SosMayor(IComparable a, IComparable b)
+    public bool sosMayor(IComparable a, IComparable b)
     {
         Alumno alumnoA = (Alumno)a;
         Alumno alumnoB = (Alumno)b;
-        return alumnoA.Legajo.SosMayor(alumnoB.Legajo);
+        return alumnoA.getLegajo().sosMayor(alumnoB.getLegajo());
     }
 }

@@ -2,24 +2,24 @@ namespace trabajo_integrador;
 
 public class ComparacionPorNombre : IEstrategiaComparacion
 {
-    public bool SosIgual(IComparable a, IComparable b)
+    public bool sosIgual(IComparable a, IComparable b)
     {
         Alumno alumnoA = (Alumno)a;
         Alumno alumnoB = (Alumno)b;
-        return alumnoA.Nombre == alumnoB.Nombre;
+        return alumnoA.getNombre() == alumnoB.getNombre();
     }
 
-    public bool SosMenor(IComparable a, IComparable b)
+    public bool sosMenor(IComparable a, IComparable b)
     {
         Alumno alumnoA = (Alumno)a;
         Alumno alumnoB = (Alumno)b;
-        return string.Compare(alumnoA.Nombre, alumnoB.Nombre, StringComparison.Ordinal) < 0;
+        return string.Compare(alumnoA.getNombre(), alumnoB.getNombre(), StringComparison.Ordinal) < 0;
     }
 
-    public bool SosMayor(IComparable a, IComparable b)
+    public bool sosMayor(IComparable a, IComparable b)
     {
         Alumno alumnoA = (Alumno)a;
         Alumno alumnoB = (Alumno)b;
-        return string.Compare(alumnoA.Nombre, alumnoB.Nombre, StringComparison.Ordinal) > 0;
+        return string.Compare(alumnoA.getNombre(), alumnoB.getNombre(), StringComparison.Ordinal) > 0;
     }
 }

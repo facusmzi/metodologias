@@ -1,85 +1,85 @@
-namespace trabajo_integrador;
-
-public class Conjunto : IColeccionable, IIterable
+namespace trabajo_integrador
 {
-    private List<IComparable> elementosComparables;
-
-    public Conjunto()
+    public class Conjunto : IColeccionable, IIterable
     {
-        this.elementosComparables = new List<IComparable>();
-    }
+        private List<IComparable> elementosComparables;
 
-    public void Agregar(IComparable comparable)
-    {
-        if (!Pertenece(comparable))
+        public Conjunto()
         {
-            elementosComparables.Add(comparable);
+            this.elementosComparables = new List<IComparable>();
         }
-    }
-    
-    public bool Pertenece(IComparable comparable)
-    {
-        for (int i = 0; i < this.elementosComparables.Count; i++)
+
+        public void agregar(IComparable comparable)
         {
-            if (this.elementosComparables[i].SosIgual(comparable))
+            if (!pertenece(comparable))
             {
-                return true;
+                elementosComparables.Add(comparable);
             }
         }
-        return false;
-    }
-    
-    public int Cuantos()
-    {
-        return elementosComparables.Count;
-    }
-
-    public IComparable Minimo()
-    {
-        if (elementosComparables.Count == 0)
+        
+        public bool pertenece(IComparable comparable)
         {
-            return null; 
-        }
-
-        IComparable minimo = this.elementosComparables[0];
-
-        for (int i = 1; i < this.Cuantos(); i++)
-        {
-            if (this.elementosComparables[i].SosMenor(minimo))
+            for (int i = 0; i < this.elementosComparables.Count; i++)
             {
-                minimo = this.elementosComparables[i];
+                if (this.elementosComparables[i].sosIgual(comparable))
+                {
+                    return true;
+                }
             }
+            return false;
         }
-        return minimo;
-    }
-
-    public IComparable Maximo()
-    {
-        if (elementosComparables.Count == 0)
+        
+        public int cuantos()
         {
-            return null; 
+            return elementosComparables.Count;
         }
 
-        IComparable maximo = this.elementosComparables[0];
-
-        for (int i = 1; i < this.Cuantos(); i++)
+        public IComparable minimo()
         {
-            if (this.elementosComparables[i].SosMayor(maximo))
+            if (elementosComparables.Count == 0)
             {
-                maximo = this.elementosComparables[i];
+                return null; 
             }
-        }
-        return maximo;
-    }
-    
-    public bool Contiene(IComparable comparable)
-    {
-        return Pertenece(comparable);
-    }
-    
-    public IIterador CrearIterador()
-    {
-        return new IteradorDeLista(elementosComparables);
-    }
 
+            IComparable minimo = this.elementosComparables[0];
+
+            for (int i = 1; i < this.cuantos(); i++)
+            {
+                if (this.elementosComparables[i].sosMenor(minimo))
+                {
+                    minimo = this.elementosComparables[i];
+                }
+            }
+            return minimo;
+        }
+
+        public IComparable maximo()
+        {
+            if (elementosComparables.Count == 0)
+            {
+                return null; 
+            }
+
+            IComparable maximo = this.elementosComparables[0];
+
+            for (int i = 1; i < this.cuantos(); i++)
+            {
+                if (this.elementosComparables[i].sosMayor(maximo))
+                {
+                    maximo = this.elementosComparables[i];
+                }
+            }
+            return maximo;
+        }
+        
+        public bool contiene(IComparable comparable)
+        {
+            return pertenece(comparable);
+        }
+        
+        public IIterador crearIterador()
+        {
+            return new IteradorDeLista(elementosComparables);
+        }
+    }
 }

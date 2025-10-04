@@ -1,57 +1,67 @@
-﻿namespace trabajo_integrador;
-
-public class Alumno : Persona
+﻿namespace trabajo_integrador
 {
-    private Numero legajo;
-    private Numero promedio;
-    private IEstrategiaComparacion estrategia;
-
-    public Alumno(string n, Numero d, Numero l, Numero p) : base(n, d)
+    public class Alumno : Persona
     {
-        legajo = l;
-        promedio = p;
-        estrategia = new ComparacionPorLegajo();
+        private Numero legajo;
+        private Numero promedio;
+        private IEstrategiaComparacion estrategia;
+
+        public Alumno(string n, Numero d, Numero l, Numero p) : base(n, d)
+        {
+            legajo = l;
+            promedio = p;
+            estrategia = new ComparacionPorLegajo();
+        }
+
+        // Getters y setters al estilo Java
+        public Numero getLegajo()
+        {
+            return legajo;
+        }
+
+        public void setLegajo(Numero l)
+        {
+            legajo = l;
+        }
+
+        public Numero getPromedio()
+        {
+            return promedio;
+        }
+
+        public void setPromedio(Numero p)
+        {
+            promedio = p;
+        }
+
+        public IEstrategiaComparacion getEstrategia()
+        {
+            return estrategia;
+        }
+
+        public void setEstrategia(IEstrategiaComparacion e)
+        {
+            estrategia = e;
+        }
+
+        public override string ToString()
+        {
+            return $"{getNombre()} (DNI: {getDni()}, Legajo: {legajo.getValor()}, Promedio: {promedio.getValor()})";
+        }
+
+        public override bool sosIgual(IComparable comparable)
+        {
+            return estrategia.sosIgual(this, comparable);
+        }
+
+        public override bool sosMenor(IComparable comparable)
+        {
+            return estrategia.sosMenor(this, comparable);
+        }
+
+        public override bool sosMayor(IComparable comparable)
+        {
+            return estrategia.sosMayor(this, comparable);
+        }
     }
-
-
-    
-
-    public Numero Legajo
-    {
-        get { return legajo; }
-    }
-
-    public Numero Promedio
-    {
-        get { return promedio; }
-    }
-
-    public IEstrategiaComparacion Estrategia
-    {
-        get { return estrategia; }
-        set { estrategia = value; }
-    }
-
-    public override string ToString()
-    {
-        return $"{nombre} (DNI: {dni}, Legajo: {legajo}, Promedio: {promedio})";
-    }
-
-    public override bool SosIgual(IComparable comparable)
-    {
-        return estrategia.SosIgual(this, comparable);
-    }
-
-
-    public override bool SosMenor(IComparable comparable)
-    {
-        return estrategia.SosMenor(this, comparable);
-    }
-
-
-    public override bool SosMayor(IComparable comparable)
-    {
-        return estrategia.SosMayor(this, comparable);
-    }
-
 }
