@@ -1,11 +1,9 @@
-﻿namespace trabajo_integrador;
-
-public interface IComparable
+﻿namespace trabajo_integrador
 {
-
-    public bool SosIgual(IComparable otro);
-    public bool SosMenor(IComparable otro);
-    public bool SosMayor(IComparable otro);
-
-
+    public interface IComparable
+    {
+        bool sosIgual(IComparable otro);
+        bool sosMenor(IComparable otro);
+        bool sosMayor(IComparable otro);
+    }
 }

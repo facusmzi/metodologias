@@ -27,8 +27,8 @@ class Program
         // Cola cola = new Cola();
         // llenar(pila);
         // llenar(cola);
-        // Informar(pila);
-        // Informar(cola);
+        // informar(pila);
+        // informar(cola);
         
         
         // ej 9
@@ -37,9 +37,9 @@ class Program
         // IColeccionable multiple = new ColeccionMultiple((Pila)pila, (Cola)cola);
         // llenar(pila);
         // llenar(cola);
-        // Informar(pila);
-        // Informar(cola);
-        // Informar(multiple);
+        // informar(pila);
+        // informar(cola);
+        // informar(multiple);
 
 
 
@@ -52,10 +52,10 @@ class Program
         LlenarAlumnos(cola);
         
         Console.WriteLine("=== INFORME DE LA PILA ===");
-        Informar(pila);
+        informar(pila);
         
         Console.WriteLine("\n=== INFORME DE LA COLA ===");
-        Informar(cola);
+        informar(cola);
     }
 
 
@@ -78,7 +78,7 @@ class Program
             );
 
 
-            coleccionable.Agregar(alumno);
+            coleccionable.agregar(alumno);
         }
     }
     
@@ -87,7 +87,7 @@ class Program
     {
         for (int i = 0; i < 20; i++){
             IComparable comparable = new Numero(Random.Next(1, 51)); 
-            coleccionable.Agregar(comparable);
+            coleccionable.agregar(comparable);
         }
     }
     
@@ -95,30 +95,30 @@ class Program
 
     // static void informar(IColeccionable col)
     // {
-    //     Console.WriteLine("Cantidad de elementos: " + col.Cuantos());
-    //     Console.WriteLine("El mínimo es: " + col.Minimo());
-    //     Console.WriteLine("El máximo es: " + col.Maximo());
+    //     Console.WriteLine("Cantidad de elementos: " + col.cuantos());
+    //     Console.WriteLine("El mínimo es: " + col.minimo());
+    //     Console.WriteLine("El máximo es: " + col.maximo());
 
     //     Console.WriteLine("Ingrese valor a buscar en el coleccionable: ");
     //     int valorBuscado = int.Parse(Console.ReadLine());
     //     Console.WriteLine("El valor " + valorBuscado +
-    //                       (col.Contiene(new Alumno("x", 0, valorBuscado, 0)) ? " está" : " no está") +
+    //                       (col.contiene(new Alumno("x", 0, valorBuscado, 0)) ? " está" : " no está") +
     //                       " en la colección.");
     // }
 
 
-    static void Informar(IColeccionable col)
+    static void informar(IColeccionable col)
     {
-        Console.WriteLine("Cantidad de elementos: " + col.Cuantos().ToString());
-        Console.WriteLine("El mínimo es: " + col.Minimo().ToString());
-        Console.WriteLine("El máximo es: " + col.Maximo().ToString());
+        Console.WriteLine("Cantidad de elementos: " + col.cuantos().ToString());
+        Console.WriteLine("El mínimo es: " + col.minimo().ToString());
+        Console.WriteLine("El máximo es: " + col.maximo().ToString());
 
         Console.WriteLine("Ingrese valor a buscar en el coleccionable: ");
         int valorBuscado = int.Parse(Console.ReadLine());
 
         IComparable comparable = new Numero(valorBuscado);
 
-        if (col.Contiene(comparable))
+        if (col.contiene(comparable))
             Console.WriteLine("El elemento leído está en la colección.");
         else
             Console.WriteLine("El elemento leído no está en la colección.");

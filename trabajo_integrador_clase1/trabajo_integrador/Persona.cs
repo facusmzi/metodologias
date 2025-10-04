@@ -1,41 +1,52 @@
-﻿namespace trabajo_integrador;
-
-public abstract class Persona : IComparable
+﻿namespace trabajo_integrador
 {
-    protected string nombre;
-    protected Numero dni;
-
-    public Persona(string n, Numero d)
+    public abstract class Persona : IComparable
     {
-        nombre = n;
-        dni = d;
-    }
+        protected string nombre;
+        protected Numero dni;
 
-    public string Nombre
-    {
-        get { return nombre; }
-    }
+        public Persona(string n, Numero d)
+        {
+            nombre = n;
+            dni = d;
+        }
 
-    public Numero DNI
-    {
-        get { return dni; }
-    }
+        public string getNombre()
+        {
+            return nombre;
+        }
 
-    public virtual bool SosIgual(IComparable comparable)
-    {
-        Persona persona = (Persona)comparable;
-        return this.dni.SosIgual(persona.DNI);
-    }
+        public void setNombre(string n)
+        {
+            nombre = n;
+        }
 
-    public virtual bool SosMenor(IComparable comparable)
-    {
-        Persona persona = (Persona)comparable;
-        return this.dni.SosMenor(persona.DNI);
-    }
+        public Numero getDni()
+        {
+            return dni;
+        }
 
-    public virtual bool SosMayor(IComparable comparable)
-    {
-        Persona persona = (Persona)comparable;
-        return this.dni.SosMayor(persona.DNI);
+        public void setDni(Numero d)
+        {
+            dni = d;
+        }
+
+        public virtual bool sosIgual(IComparable comparable)
+        {
+            Persona persona = (Persona)comparable;
+            return this.dni.sosIgual(persona.getDni());
+        }
+
+        public virtual bool sosMenor(IComparable comparable)
+        {
+            Persona persona = (Persona)comparable;
+            return this.dni.sosMenor(persona.getDni());
+        }
+
+        public virtual bool sosMayor(IComparable comparable)
+        {
+            Persona persona = (Persona)comparable;
+            return this.dni.sosMayor(persona.getDni());
+        }
     }
 }
