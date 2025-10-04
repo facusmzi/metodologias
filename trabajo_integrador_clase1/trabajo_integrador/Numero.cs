@@ -19,7 +19,7 @@
             this.valor = valor;
         }
 
-        // Implementamos la interfaz IComparable
+        
         public bool sosIgual(IComparable comparable)
         {
             return this.valor == ((Numero)comparable).getValor();

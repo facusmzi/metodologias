@@ -77,8 +77,8 @@
 
         public void agregar(IComparable comparable)
         {
-            // Por ejemplo, agregamos a la pila por defecto
-            pila.agregar(comparable);
+            
+            
         }
 
         public bool contiene(IComparable comparable)

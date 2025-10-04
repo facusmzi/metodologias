@@ -9,7 +9,7 @@
             this.elementos = new List<IComparable>();
         }
 
-        // Métodos para la cola
+        // metodos para la cola
         public void encolar(IComparable elem)
         {
             elementos.Add(elem);
