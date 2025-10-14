@@ -16,8 +16,8 @@ class Program
         cola.setOrdenLlegaAlumno(new OrdenLlegaAlumno(aulaCola));
         cola.setOrdenAulaLlena(new OrdenAulaLlena(aulaCola));
 			     
-        llenar(cola, 2); // 20 alumnos normales
-        llenar(cola, 4); // 20 alumnos muy estudiosos
+        llenar(cola, 5); // 20 alumnos normales proxy
+        llenar(cola, 6); // 20 alumnos muy estudiosos proxy
         
         
         

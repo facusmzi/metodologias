@@ -4,22 +4,22 @@ namespace trabajo_integrador
     {
         public bool sosIgual(IComparable a, IComparable b)
         {
-            Alumno alumnoA = (Alumno)a;
-            Alumno alumnoB = (Alumno)b;
+            IAlumno alumnoA = (IAlumno)a;
+            IAlumno alumnoB = (IAlumno)b;
             return alumnoA.getPromedio().sosIgual(alumnoB.getPromedio());
         }
 
         public bool sosMenor(IComparable a, IComparable b)
         {
-            Alumno alumnoA = (Alumno)a;
-            Alumno alumnoB = (Alumno)b;
+            IAlumno alumnoA = (IAlumno)a;
+            IAlumno alumnoB = (IAlumno)b;
             return alumnoA.getPromedio().sosMenor(alumnoB.getPromedio());
         }
 
         public bool sosMayor(IComparable a, IComparable b)
         {
-            Alumno alumnoA = (Alumno)a;
-            Alumno alumnoB = (Alumno)b;
+            IAlumno alumnoA = (IAlumno)a;
+            IAlumno alumnoB = (IAlumno)b;
             return alumnoA.getPromedio().sosMayor(alumnoB.getPromedio());
         }
     }
